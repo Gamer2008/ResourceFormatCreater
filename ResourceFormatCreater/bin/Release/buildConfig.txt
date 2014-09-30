@@ -1,0 +1,17 @@
+{
+  "notBuildList": [
+    "Particles"
+  ],
+  "singleBuildList": [
+    "res"
+  ],
+  "cocoStudioList": [
+    "IceUI"
+  ],
+  "plistBuildList": [
+    "sprite",
+  ],
+  "tmxMap": "map",
+  "cmdStr": " --allow-free-size --trim --padding 1 --opt RGBA8888 --dither-fs-alpha --format cocos2d ",
+  "cmdStr": " --allow-free-size --no-trim --padding 0 --disable-rotation --opt RGBA8888 --dither-fs-alpha --content-protection 10241024102410241024102410241024 --format cocos2d "
+}

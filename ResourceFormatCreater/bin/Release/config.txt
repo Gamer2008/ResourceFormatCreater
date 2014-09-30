@@ -1,0 +1,1 @@
+{"filePath":"E:/work/svn/Client/IceDemo/res","createPath":"E:/work/svn/Client/test","basePath":"res/cocostudio/IceUI/","fileName":"CocosResource.js","cocos2dConsolePath":"/../cocos2d-console/bin"}

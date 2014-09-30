@@ -40,6 +40,7 @@
             this.txtContent = new System.Windows.Forms.TextBox();
             this.操作 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ck_js = new System.Windows.Forms.CheckBox();
             this.操作.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +63,7 @@
             // 
             // btn_create
             // 
-            this.btn_create.Location = new System.Drawing.Point(477, 42);
+            this.btn_create.Location = new System.Drawing.Point(529, 47);
             this.btn_create.Name = "btn_create";
             this.btn_create.Size = new System.Drawing.Size(59, 23);
             this.btn_create.TabIndex = 0;
@@ -96,6 +97,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "png";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.Visible = false;
             // 
             // radioButton2
             // 
@@ -107,6 +109,7 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "pvr";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.Visible = false;
             // 
             // radioButton3
             // 
@@ -118,6 +121,7 @@
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "pvr.ccz";
             this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.Visible = false;
             // 
             // txtContent
             // 
@@ -129,6 +133,7 @@
             // 
             // 操作
             // 
+            this.操作.Controls.Add(this.ck_js);
             this.操作.Controls.Add(this.txt_create);
             this.操作.Controls.Add(this.txt_work);
             this.操作.Controls.Add(this.radioButton3);
@@ -154,6 +159,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "日志";
             // 
+            // ck_js
+            // 
+            this.ck_js.AutoSize = true;
+            this.ck_js.Checked = true;
+            this.ck_js.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ck_js.Location = new System.Drawing.Point(510, 111);
+            this.ck_js.Name = "ck_js";
+            this.ck_js.Size = new System.Drawing.Size(60, 16);
+            this.ck_js.TabIndex = 9;
+            this.ck_js.Text = "js加密";
+            this.ck_js.UseVisualStyleBackColor = true;
+            // 
             // rescreater
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -164,7 +181,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "rescreater";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "资源文件生成器";
+            this.Text = "资源加密工具";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.rescreater_FormClosed);
             this.操作.ResumeLayout(false);
             this.操作.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -186,6 +204,7 @@
         private System.Windows.Forms.TextBox txtContent;
         private System.Windows.Forms.GroupBox 操作;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox ck_js;
     }
 }
 

@@ -6,6 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+public enum DICTYPE
+{
+    CocostudioType = 0,
+    MapType = 1,
+}
+
 namespace ResourceFormatCreater
 {
     public class TPConfig
@@ -14,6 +20,10 @@ namespace ResourceFormatCreater
         public static List<string> notBuildList = new List<string>();
         public static List<string> singleBuildList = new List<string>();
         public static List<string> cocoStudioList = new List<string>();
+        public static List<string> plistBuildList = new List<string>();
+        public static string tmxMap = "";
+        public static string cmdStr = " --allow-free-size --trim --padding 1 --opt RGBA8888 --dither-fs-alpha --format cocos2d ";
+        public static string singleCmdStr = " --allow-free-size --no-trim --padding 0 --disable-rotation --opt RGBA8888 --dither-fs-alpha --content-protection 10241024102410241024102410241024 --format cocos2d ";
 
         public static bool BeInNotBuildList(string dicName)
         {
@@ -27,6 +37,14 @@ namespace ResourceFormatCreater
         public static bool BeInCocoStudioList(string dicName)
         {
             return beInList(cocoStudioList, dicName);
+        }
+        public static bool BeInPlistBuildList(string dicName)
+        {
+            return beInList(plistBuildList, dicName);
+        }
+        public static bool BeTmxMap(string dicName)
+        {
+            return tmxMap == dicName;
         }
 
         public static void LoadConfig()
@@ -66,6 +84,26 @@ namespace ResourceFormatCreater
                             cocoStudioList.Add(o.ToString());
                         }
                     }
+                    if (dic.ContainsKey("plistBuildList"))
+                    {
+                        List<object> lst = dic["plistBuildList"] as List<object>;
+                        foreach (object o in lst)
+                        {
+                            plistBuildList.Add(o.ToString());
+                        }
+                    }
+                    if (dic.ContainsKey("tmxMap"))
+                    {
+                        tmxMap = dic["tmxMap"].ToString();
+                    }
+                    if (dic.ContainsKey("cmdStr"))
+                    {
+                        cmdStr = dic["cmdStr"].ToString();
+                    }
+                    if (dic.ContainsKey("singleCmdStr"))
+                    {
+                        singleCmdStr = dic["singleCmdStr"].ToString();
+                    }
                 }
             }
             else
@@ -74,7 +112,10 @@ namespace ResourceFormatCreater
                 dicInfo["notBuildList"] = notBuildList;
                 dicInfo["singleBuildList"] = singleBuildList;
                 dicInfo["cocoStudioList"] = cocoStudioList;
-
+                dicInfo["plistBuildList"] = cocoStudioList;
+                dicInfo["tmxMap"] = tmxMap;
+                dicInfo["cmdStr"] = cmdStr;
+                dicInfo["singleCmdStr"] = singleCmdStr;
                 string str = MiniJSON.Json.Serialize(dicInfo);
                 File.WriteAllText(createPath, str);
             }

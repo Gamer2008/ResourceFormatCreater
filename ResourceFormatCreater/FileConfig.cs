@@ -13,6 +13,7 @@ namespace ResourceFormatCreater
     {
         public string filePath = "";
         public string createPath = "";
+        public string cocos2dConsolePath = "";
         public string basePath = "res/cocostudio/IceUI/";
         public string fileName = "CocosResource.js";
 
@@ -45,6 +46,11 @@ namespace ResourceFormatCreater
                         createPath = dic["createPath"].ToString();
  
                     }
+                    if (dic.ContainsKey("cocos2dConsolePath"))
+                    {
+                        cocos2dConsolePath = dic["cocos2dConsolePath"].ToString();
+
+                    }
                     if (dic.ContainsKey("basePath"))
                     {
                         basePath = dic["basePath"].ToString();
@@ -68,6 +74,8 @@ namespace ResourceFormatCreater
             dic["createPath"] = createPath;
             dic["basePath"] = basePath;
             dic["fileName"] = fileName;
+            dic["cocos2dConsolePath"] = cocos2dConsolePath;
+            
             
             string message = MiniJSON.Json.Serialize(dic);
             File.WriteAllText(m_configFilePath, message);

@@ -1,1 +1,16 @@
-{"notBuildList":["123","dasd"],"singleBuildList":["456"],"cocoStudioList":["789"]}
+{
+  "notBuildList": [
+    "Particles"
+  ],
+  "singleBuildList": [
+    "res"
+  ],
+  "cocoStudioList": [
+    "IceUI"
+  ],
+  "plistBuildList": [
+    "sprite",
+  ],
+  "tmxMap": "map",
+  "cmdStr": " --allow-free-size --trim --padding 1 --opt RGBA8888 --dither-fs-alpha --format cocos2d "
+}
